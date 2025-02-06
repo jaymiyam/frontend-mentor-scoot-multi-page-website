@@ -3,6 +3,7 @@ const scooterTabBtns = document.querySelectorAll('.scooters-tab');
 const scooterImageEl = document.querySelector('#scooter-image');
 const scooterNameEl = document.querySelector('#scooter-name');
 const scooterDescEl = document.querySelector('#scooter-description');
+const scootersWrapperEl = document.querySelector('.scooters-wrapper');
 
 let currentScooterIndex = 0;
 const scootersList = [
