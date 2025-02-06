@@ -46,4 +46,35 @@ function setActiveScooter(index) {
   scooterTabBtns[index].classList.add('active');
 }
 
+// mobile device touch event handlers
+let startingTouchX;
+let endingTouchX;
+const touchDelta = 50;
+
+scootersWrapperEl.addEventListener('touchstart', (e) => {
+  startingXpos = e.targetTouches[0].clientX;
+});
+
+scootersWrapperEl.addEventListener('touchend', (e) => {
+  endingXpos = e.changedTouches[0].clientX;
+
+  let dx = startingXpos - endingXpos;
+  if (dx > delta) {
+    console.log('swiped left');
+    if (currentScooterIndex === scootersList.length - 1) {
+      currentScooterIndex = 0;
+    } else {
+      currentScooterIndex++;
+    }
+  } else if (dx < -delta) {
+    console.log('swiped right');
+    if (currentScooterIndex === 0) {
+      currentScooterIndex = scootersList.length - 1;
+    } else {
+      currentScooterIndex--;
+    }
+  }
+  setActiveScooter(currentScooterIndex);
+});
+
 window.onload = setActiveScooter(currentScooterIndex);
