@@ -232,6 +232,11 @@
   .question-header {
     padding: var(--gap-sm);
   }
+
+  .question-header[aria-expanded='true'] + .question-body {
+    opacity: 1;
+    max-height: 15em;
+  }
 }
 
 /* careers page */
